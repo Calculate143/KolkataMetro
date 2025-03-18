@@ -154,26 +154,25 @@ function calculateFare() {
     const toStation = document.getElementById("toStation").value;
     const result = document.getElementById("result");
 
+    // Reset result display
+    result.style.display = "none"; // Ensure it starts hidden
+    result.className = "fare-result text-center p-3 mt-3"; // Reset classes
+
     if (!fromStation || !toStation || fromStation === toStation) {
         result.textContent = "Please select different valid stations!";
-        result.style.backgroundColor = "#ffcccc"; // Red background for error
-        result.style.color = "#721c24";
+        result.classList.add("error");
+        result.style.display = "block"; // Make it visible
         return;
     }
 
     if (fareData[fromStation] && fareData[fromStation][toStation] !== undefined) {
         const fare = fareData[fromStation][toStation];
         result.innerHTML = `<span class="fare-amount">₹${fare}</span><br>from <span class="station-name">${fromStation}</span> to <span class="station-name">${toStation}</span>`;
-        result.style.backgroundColor = "#d4edda"; // Green background for success
-        result.style.color = "#155724";
-        result.style.opacity = "0"; // Start with opacity 0 for animation
-        setTimeout(() => {
-            result.style.transition = "opacity 0.5s ease";
-            result.style.opacity = "1"; // Fade in
-        }, 10);
+        result.classList.add("success");
+        result.style.display = "block"; // Make it visible
     } else {
         result.textContent = "Invalid station combination or fare data not available!";
-        result.style.backgroundColor = "#ffcccc"; // Red background for error
-        result.style.color = "#721c24";
+        result.classList.add("error");
+        result.style.display = "block"; // Make it visible
     }
 }
