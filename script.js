@@ -171,7 +171,7 @@ function calculateFare() {
         result.classList.add("success");
         result.style.display = "block"; // Make it visible
     } else {
-        result.textContent = "Invalid station combination or fare data not available!";
+        result.textContent = "Please Choose Station Name from Dropdown";
         result.classList.add("error");
         result.style.display = "block"; // Make it visible
     }
