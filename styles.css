@@ -1,20 +1,26 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #e6f7c4 0%, #f5f5f5 100%); /* Light lime to soft white */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    height: 100vh; /* Restrict to viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow: hidden; /* Prevent page scrolling */
 }
 
 .container {
-    flex: 1;
+    flex: 1; /* Allow container to take available space */
+    overflow-y: auto; /* Scroll within container if needed */
 }
 
 /* Navbar */
 .navbar {
     align-items: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .navbar-brand {
@@ -36,6 +42,8 @@ body {
     border-radius: 15px;
     background: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-height: 70vh; /* Limit card height to fit viewport */
+    overflow-y: auto; /* Scroll within card if content overflows */
 }
 
 .card:hover {
@@ -179,8 +187,10 @@ h1 {
 /* Footer */
 footer {
     background: linear-gradient(135deg, #343a40 0%, #212529 100%);
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #f8f9fa;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    padding: 1rem 0; /* Reduced padding for compactness */
 }
 
 /* Responsive Design */
@@ -200,5 +210,9 @@ footer {
 
     .fare-result {
         font-size: 1.1rem;
+    }
+
+    .card {
+        max-height: 65vh; /* Slightly smaller for mobile */
     }
 }
